@@ -4,10 +4,17 @@ Sub RemoverPalavrasEspecificas()
     Dim palavra As Variant
     Dim rng As Range
 
-    ' Lista de palavras separadas por vírgulas
-    palavras = "a,à,agora,ainda,algum,alguma,algumas,alguns,antes,ao,aos,aqui,as,às,assim,até,bem,CAPÍTULO,com,comigo,como,cousa,creio,da,dar,das,dava,de,dela,dele,dentro,depois,depressa,deu,disse,dizer,dizia,do,dos,dous,duas,e,é,ela,ele,eles,em,então,entrar,entre,era,eram,esta,está,estar,estava,este,eu,falar,fazer,fez,fim,foi,fora,fosse,fui,gente,grande,há,havia,ia,ir,isso,isto,já,la,lá,lhe,lo,logo,mais,mal,mas,me,meio,melhor,menos,mesma,mesmo,meu,meus,mim,minha,muito,na,nada,não,nas,nem,no,nos,nós,nossa,o,os,Os,ou,outra,outras,outro,outros,para,pela,pelo,pode,podia,pois,por,porque,pouco,primeira,primeiro,quando,que,queria,quis,são,se,sei,sem,sempre,senhor,senhora,ser,seu,seus,si,só,sua,tal,também,tanto,tão,tarde,tem,ter,tinha,toda,todas,todo,todos,tudo,uma,veio,vez,vezes,vi,df:,bom,vamos,você,vão,vou,aa:,sa:,acho,nesse,cada,foram,essa,2,esse,talvez,bastante,cara,vai,tipo,época,caso,normalmente,certamente,vendo,ano,basicamente,certo,obviamente,pesando,além,anterior,aquela,costumavam,dia,quer," & _
-    "etapa,varia,90,120 algo,alguém,ali,anos,dessa,desse,deste,deve,devia,dias,dois,elas,enfim,estando,estavam,etc,ali,ler,Num,par,pós,pra,pro,quê,sim,uns,ver,nessa,novo,onde,seja,sendo,será,serem,série,tenha,tenho,tentar,teve,tido,tinham,tive,trazer,vale,vários,torno,qual,tipicamente,aspecto,tava,elemento,comprador,comprar,menor,diria,apenas,apresenta,chegar,existir,poderia,diferentes,leva,especialmente,extremamente,mapeando,máximo,tomar,muitas,alí,boa,dão,faz,fiz,ham,têm,xyz,hoje,hora,indo,iria,lado,mora,numa,olha,pega,putz,quem,sido,terá,trás,traz,vejo,vira,vivi,ambos,caramba,desses,essas,esses,estão,estes,estilo,estou,existe,existem,existia,react,python,invés,neste,ninguém,quais,supor,tendo,teria,termos,venha,pergunta,resposta,tende,aquele,durante,fala,utilizada,somado,acredito,geral,próprio,eventuais,gerar,sobre,usualmente,tópicos,posterior,questão,depender,aspectos,pauta" & _
-    "definido , dificulta,entregando,envolvidas,escolhendo,fase,integrado,internas,longa,maioria,nenhuma,pessoal,times,goldman,passar,perna,bancário,apareço,continua,fiscal,conosco,própria,sofreu,procuraram,começou,vasta,nosso,virar,saber,durar"
+    ' Lista de palavras separadas por vírgulas (compacta)
+    palavras = "a,à,agora,ainda,algum,alguma,algumas,alguns,antes,ao,aos,aqui,as,às,assim,até," & _
+               "bem,CAPÍTULO,com,comigo,como,cousa,creio,da,dar,das,dava,de,dela,dele,dentro,depois,depressa,deu," & _
+               "disse,dizer,dizia,do,dos,dous,duas,e,é,ela,ele,eles,em,então,entrar,entre,era,eram," & _
+               "esta,está,estar,estava,este,eu,falar,fazer,fez,fim,foi,fora,fosse,fui,gente,grande," & _
+               "há,havia,ia,ir,isso,isto,já,Já,la,lá,lhe,lo,logo,mais,mal,mas,me,meio,melhor,menos,mesma," & _
+               "mesmo,meu,meus,mim,minha,muito,na,nada,não,nas,nem,no,nos,nós,nossa,o,os,Os,ou,outra,outras," & _
+               "outro,outros,para,pela,pelo,pode,podia,pois,por,porque,pouco,primeira,primeiro,quando," & _
+               "que,queria,quis,são,se,sei,sem,sempre,senhor,senhora,ser,seu,seus,si,só,sua,tal,também," & _
+               "tanto,tão,tarde,tem,ter,tinha,toda,todas,todo,todos,tudo,uma,veio,vez,vezes,vi,df:,bom," & _
+               "vamos,você,vão,vou,aa:,sa:,acho,nesse,cada,foram,essa,2,esse,talvez,bastante,cara,vai,tipo"
 
     ' Dividir a string em um array de palavras
     palavrasArray = Split(palavras, ",")
@@ -16,8 +23,8 @@ Sub RemoverPalavrasEspecificas()
     For Each palavra In palavrasArray
         Set rng = ActiveDocument.Content
         With rng.Find
-            .Text = " " & Trim(palavra) & " " ' Encontra palavras com espaços ao redor
-            .Replacement.Text = " " ' Substitui por um espaço único
+            .Text = Trim(palavra)
+            .Replacement.Text = ""
             .Forward = True
             .Wrap = wdFindContinue
             .MatchCase = False
@@ -25,17 +32,6 @@ Sub RemoverPalavrasEspecificas()
             .Execute Replace:=wdReplaceAll
         End With
     Next palavra
-
-    ' Remover espaços extras
-    Set rng = ActiveDocument.Content
-    With rng.Find
-        .Text = "  " ' Procura por espaços duplos
-        .Replacement.Text = " " ' Substitui por um espaço único
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .Execute Replace:=wdReplaceAll
-    End With
 
     MsgBox "Palavras removidas com sucesso!"
 End Sub
