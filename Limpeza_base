@@ -14,7 +14,7 @@ Sub RemoverPalavrasEspecificas()
                "outro,outros,para,pela,pelo,pode,podia,pois,por,porque,pouco,primeira,primeiro,quando," & _
                "que,queria,quis,são,se,sei,sem,sempre,senhor,senhora,ser,seu,seus,si,só,sua,tal,também," & _
                "tanto,tão,tarde,tem,ter,tinha,toda,todas,todo,todos,tudo,uma,veio,vez,vezes,vi,df:,bom," & _
-               "vamos,você,vão,vou,aa:,sa:,acho,nesse,cada,foram,essa,2,esse,talvez,bastante,cara,vai,tipo"
+               "vamos,você,vão,vou,aa:,sa:,acho,nesse,cada,foram,essa,2,esse,talvez,bastante,cara,vai,tipo,ai,né,aí"
 
     ' Dividir a string em um array de palavras
     palavrasArray = Split(palavras, ",")
