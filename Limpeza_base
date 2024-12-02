@@ -6,14 +6,14 @@ Sub RemoverPalavrasEspecificas()
 
     ' Lista de palavras separadas por vírgulas (compacta)
     palavras = "a,à,agora,ainda,algum,alguma,algumas,alguns,antes,ao,aos,aqui,as,às,assim,até,faz,área,um,porém,tocar,volume,via," & _
-               "bem,CAPÍTULO,com,comigo,como,cousa,creio,da,dar,das,dava,de,dela,dele,dentro,depois,depressa,deu,quer,nessa,seja,digo,algo,nessa,nesse,nessas,nesses,nossos," & _
+               "bem,com,comigo,como,cousa,creio,da,dar,das,dava,de,dela,dele,dentro,depois,depressa,deu,quer,nessa,seja,digo,algo,nessa,nesse,nessas,nesses,nossos," & _
                "disse,dizer,dizia,do,dos,dous,duas,e,é,ela,ele,eles,em,então,entrar,entre,era,eram,fiz,tema,vem,veem,vêm,onde,qual,-mail," & _
                "esta,está,estar,estava,este,eu,falar,fazer,fez,fim,foi,fora,fosse,fui,gente,grande,ah," & _
                "há,havia,ia,ir,isso,isto,já,Já,la,lá,lhe,lo,logo,mais,mal,mas,me,meio,melhor,menos,mesma," & _
                "mesmo,meu,meus,mim,minha,muito,na,nada,não,nas,nem,no,nos,nós,nossa,o,os,Os,ou,outra,outras," & _
                "outro,outros,para,pela,pelo,pode,podia,pois,por,porque,pouco,primeira,primeiro,quando," & _
                "que,queria,quis,são,se,sei,sem,sempre,senhor,senhora,ser,seu,seus,si,só,sua,tal,também," & _
-               "tanto,tão,tarde,tem,ter,tinha,toda,todas,todo,todos,tudo,uma,veio,vez,vezes,vi,df:,bom,sim,não,um" & _
+               "tanto,tão,tarde,tem,ter,tinha,toda,todas,todo,todos,tudo,uma,veio,vez,vezes,vi,bom,sim,não,um" & _
                "vamos,você,vão,vou,aa:,sa:,acho,nesse,cada,foram,essa,2,esse,talvez,bastante,cara,vai,tipo,ai,né,aí"
 
     ' Dividir a string em um array de palavras
