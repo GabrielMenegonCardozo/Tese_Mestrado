@@ -1,0 +1,55 @@
+# Instalar pacotes necessários
+install.packages("tidytext")
+install.packages("dplyr")
+install.packages("readr")
+install.packages("stringr")
+
+# Carregar pacotes
+library(tidytext)
+library(dplyr)
+library(readr)
+library(stringr)
+
+# Definir o caminho do arquivo
+file_path <- "Preencher com local do arquivo"
+
+# Verificar se o arquivo existe
+if (!file.exists(file_path)) {
+  stop(paste("Arquivo não encontrado:", file_path))
+}
+
+# Ler o conteúdo do arquivo e dividir em parágrafos
+document_text <- read_file(file_path)
+paragraphs <- str_split(document_text, pattern = "\\n\\s*\\n")[[1]]
+
+# Criar um dataframe com parágrafos como "documentos"
+text_df <- data.frame(
+  doc_id = seq_along(paragraphs),
+  text = paragraphs,
+  stringsAsFactors = FALSE
+)
+
+# Tokenizar o texto
+text_tokens <- text_df %>%
+  unnest_tokens(word, text)
+
+# Calcular TF (Frequência de Termos)
+tf <- text_tokens %>%
+  count(doc_id, word, name = "tf") %>%
+  group_by(doc_id) %>%
+  mutate(tf = tf / sum(tf))
+
+# Calcular IDF (Frequência Inversa de Documentos)
+idf <- text_tokens %>%
+  count(word, doc_id) %>%
+  count(word, name = "df") %>%
+  mutate(idf = log(n_distinct(text_df$doc_id) / df))
+
+# Calcular TF-IDF
+tf_idf_scores <- tf %>%
+  inner_join(idf, by = "word") %>%
+  mutate(tf_idf = tf * idf) %>%
+  arrange(desc(tf_idf))
+
+# Exibir os 20 termos mais relevantes
+print(head(tf_idf_scores, 20))
