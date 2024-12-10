@@ -20,7 +20,7 @@ if (!file.exists(file_path)) {
 
 # Ler o conteúdo do arquivo e dividir em parágrafos
 document_text <- read_file(file_path)
-paragraphs <- str_split(document_text, pattern = "\\n\\s*\\n")[[1]]
+paragraphs <- str_split(document_text, pattern = "(\\r\\n|\\n){2,}")[[1]]
 
 # Criar um dataframe com parágrafos como "documentos"
 text_df <- data.frame(
@@ -52,4 +52,6 @@ tf_idf_scores <- tf %>%
   arrange(desc(tf_idf))
 
 # Exibir os 20 termos mais relevantes
-print(head(tf_idf_scores, 20))
+tf_idf_scores %>% 
+  head(20) %>% 
+  print(n = 20)
