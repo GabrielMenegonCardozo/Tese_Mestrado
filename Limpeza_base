@@ -5,7 +5,7 @@ Sub RemoverPalavrasEspecificas()
     Dim rng As Range
 
     ' Lista de palavras separadas por vírgulas (compacta)
-    palavras = "a,à,agora,ainda,algum,alguma,algumas,alguns,antes,ao,aos,aqui,as,às,assim,até,faz,área,um,porém,tocar,volume,via,daí,pô,economia,campo," & _
+    palavras = "a,à,agora,ainda,algum,alguma,algumas,alguns,antes,ao,aos,aqui,as,às,assim,até,faz,área,um,porém,tocar,volume,via,daí,pô," & _
                "bem,com,comigo,como,cousa,creio,da,dar,das,dava,de,dela,dele,dentro,depois,depressa,deu,quer,nessa,seja,digo,algo,nessa,nesse,nessas,nesses,nossos," & _
                "disse,dizer,dizia,do,dos,dous,duas,e,é,ela,ele,eles,em,então,entrar,entre,era,eram,fiz,tema,vem,veem,vêm,onde,qual,e-mail," & _
                "esta,está,estar,estava,este,eu,falar,fazer,fez,fim,foi,fora,fosse,fui,gente,grande,ah,três,3,f,ex," & _
