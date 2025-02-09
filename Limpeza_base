@@ -7,7 +7,7 @@ Sub RemoverPalavrasEspecificas()
     ' Lista de palavras separadas por vírgulas (compacta)
     palavras = "a,à,agora,ainda,algum,alguma,algumas,alguns,antes,ao,aos,aqui,as,às,assim,até,faz,área,um,porém,tocar,volume,via,daí,pô,economia,campo," & _
                "bem,com,comigo,como,cousa,creio,da,dar,das,dava,de,dela,dele,dentro,depois,depressa,deu,quer,nessa,seja,digo,algo,nessa,nesse,nessas,nesses,nossos," & _
-               "disse,dizer,dizia,do,dos,dous,duas,e,é,ela,ele,eles,em,então,entrar,entre,era,eram,fiz,tema,vem,veem,vêm,onde,qual,-mail," & _
+               "disse,dizer,dizia,do,dos,dous,duas,e,é,ela,ele,eles,em,então,entrar,entre,era,eram,fiz,tema,vem,veem,vêm,onde,qual,one-to-one,e-mail," & _
                "esta,está,estar,estava,este,eu,falar,fazer,fez,fim,foi,fora,fosse,fui,gente,grande,ah,três,3,f,ex," & _
                "há,havia,ia,ir,isso,isto,já,Já,la,lá,lhe,lo,logo,mais,mal,mas,me,meio,melhor,menos,mesma,júnior" & _
                "mesmo,meu,meus,mim,minha,muito,na,nada,não,nas,nem,no,nos,nós,nossa,o,os,Os,ou,outra,outras," & _
