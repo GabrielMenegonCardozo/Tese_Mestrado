@@ -53,5 +53,5 @@ tf_idf_scores <- tf %>%
 
 # Exibir os 20 termos mais relevantes
 tf_idf_scores %>% 
-  head(20) %>% 
-  print(n = 20)
+  head(10) %>% 
+  print(n = 10)
